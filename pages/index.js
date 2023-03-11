@@ -3,11 +3,22 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const router = useRouter()
+
+  /* Par ce système, on ajoute la string à l'url 
+    On peut donc diriger par le click à divers endroits du site
+    On peut aussi utiliser replace au lieu de push
+  */
+  const handleClick = () => {
+    router.push("/product")
+  }
   return (
     <>
       <Head>
@@ -24,6 +35,10 @@ export default function Home() {
         <Link href="/product">
           Produits
         </Link>
+
+        <button onClick={handleClick}>
+          Commander
+        </button>
       </main>
     </>
   )
