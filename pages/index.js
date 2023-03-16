@@ -36,6 +36,18 @@ export default function Home() {
           Produits
         </Link>
 
+        <Link href="/users">
+          <a>
+            Utilisateurs
+          </a>  
+        </Link>
+
+        <Link href="/posts">
+          <a>
+            Posts
+          </a>  
+        </Link>
+
         <button onClick={handleClick}>
           Commander
         </button>
