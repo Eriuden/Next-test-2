@@ -29,6 +29,9 @@ export async function getStaticsProps() {
   return {
     props: {
       products: data,
-    }
+    },
+    revalidate: 10, 
   }
 }
+
+

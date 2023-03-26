@@ -1,6 +1,12 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 
+/*petit brief sur la régénération statique incrémentale
+Ca permet de n'update que les pages le nécéssitant, pas l'app entière
+Dans la getStaticProps, on spécifie une clé de revalidation
+dont la valeur est le temps qu'il faut pour ré-autoriser une regen
+Aussi, ca ne s'active que si l'user fait une requète qui force une regen*/
+
 export const products = ({products}) => {
 
     const router = useRouter()
@@ -32,8 +38,9 @@ export async function getStaticsProps(context) {
 
     return {
         props: {
-            product: data
-        }
+            product: data,
+        },
+        revalidate: 10,
     }
 }
 
